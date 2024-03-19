@@ -22,6 +22,7 @@ ChromeManifestPath="$ChromeBasePath/NativeMessagingHosts/com.trelica.browser_hel
 EdgeManifestPath="$EdgeBasePath/NativeMessagingHosts/com.trelica.browser_helper.json"
 MozillaManifestPath="$MozillaBasePath/NativeMessagingHosts/com.trelica.browser_helper.json"
  
+echo "Creating folders and files..."
 # Create necessary folders in the current user's Library
 mkdir -p "$AppScriptsFolder/2MXR75AJYH.com.trelica.macgroup"
 cd "$GroupContainersFolder" || exit
@@ -35,7 +36,7 @@ mkdir -p "$(dirname "$AliasPath")"
  # Delete existing alias if it exists
 rm -f "$AliasPath" 
 ln -s "$AppScriptsFolder/2MXR75AJYH.com.trelica.macgroup" "$AliasPath" 
-echo "Folders and alias created"
+echo "- Basic folders and alias created"
 
 # Emit the plist
 mkdir -p "$(dirname "$plistPath")"
@@ -51,7 +52,7 @@ cat > "$plistPath" <<EOF
 </dict>
 </plist>
 EOF
-echo "plist written"
+echo "- plist written"
 
 sudo chown -R "$CurrentUser" "$GroupContainersFolder/2MXR75AJYH.com.trelica.macgroup"
  
@@ -70,18 +71,18 @@ if [ -d "$ChromeBasePath" ]; then
     mkdir -p "$(dirname "$ChromeManifestPath")"
     echo "$ChromiumManifestJson" > "$ChromeManifestPath"
     sudo chown -R "$CurrentUser" "$ChromeManifestPath"
-    echo "Chrome manifest written"
+    echo "- Chrome manifest written"
 else
-    echo "Chrome not installed"
+    echo "x Chrome not installed"
 fi
 
 if [ -d "$EdgeBasePath" ]; then
     mkdir -p "$(dirname "$EdgeManifestPath")"
     echo "$ChromiumManifestJson" > "$EdgeManifestPath"
     sudo chown -R "$CurrentUser" "$EdgeManifestPath"
-    echo "Edge manifest written"
+    echo "- Edge manifest written"
 else
-    echo "Edge not installed"
+    echo "x Edge not installed"
 fi
 
 # Write Firefox manifest
@@ -98,13 +99,13 @@ if [ -d "$MozillaBasePath" ]; then
     mkdir -p "$(dirname "$MozillaManifestPath")"
     echo "$MozillaManifestJson" > "$MozillaManifestPath"
     sudo chown -R "$CurrentUser" "$MozillaManifestPath"
-    echo "Mozilla manifest written"
+    echo "- Mozilla manifest written"
 else
-    echo "Mozilla not installed"
+    echo "x Mozilla not installed"
 fi
  
 # Install Trelica Browser Helper if not already present
-if [ -d "$ExecutablePath" ]; then
+if [ ! -e "$ExecutablePath" ]; then
     echo "Downloading and installing Browser Helper..."
     cd "/Users/$CurrentUser"
     curl -O "$TrelicaBrowserHelperUrl"
@@ -113,5 +114,5 @@ if [ -d "$ExecutablePath" ]; then
     rm TrelicaBrowserHelper.pkg
     echo "- Installation complete"
 else
-    echo "Browser Helper already installed at $ExecutablePath"
+    echo "x Browser Helper already installed at $ExecutablePath"
 fi
