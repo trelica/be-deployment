@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Alter these to point to your Trelica Organization ID and the correct domain (app or eu)
-OrgID="e91556da909a4b0c22c208d7c3f06bbf"
+OrgID="a12345bc678d9e0f12a345b6c7f89def"
 Domain="app.trelica.com"
+TrelicaBrowserHelperUrl="https://vendeqappfiles.blob.core.windows.net/public/browserxtn/TrelicaBrowserHelper.pkg"
 
 # Paths to install to
 CurrentUser=$(who | awk '/console/{print $1}')
@@ -103,6 +104,6 @@ fi
  
 # Install Trelica Browser Helper
 cd "/Users/$CurrentUser"
-curl -O https://vendeqappfiles.blob.core.windows.net/public/browserxtn/TrelicaBrowserHelper.pkg
+curl -O "$TrelicaBrowserHelperUrl"
 sudo installer -pkg TrelicaBrowserHelper.pkg -target /Applications
 rm TrelicaBrowserHelper.pkg
