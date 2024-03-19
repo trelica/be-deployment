@@ -10,6 +10,7 @@ CurrentUser=$(who | awk '/console/{print $1}')
 AppScriptsFolder="/Users/$CurrentUser/Library/Application Scripts"
 GroupContainersFolder="/Users/$CurrentUser/Library/Group Containers"
 plistPath="$GroupContainersFolder/2MXR75AJYH.com.trelica.macgroup/Library/Application Support/Trelica/BrowserHelper.plist"
+ExecutablePath="$GroupContainersFolder/2MXR75AJYH.com.trelica.macgroup/Library/Application Support/Trelica/TrelicaBrowserHelper"
 AliasPath="$GroupContainersFolder/2MXR75AJYH.com.trelica.macgroup/Library/Application Scripts/2MXR75AJYH.com.trelica.macgroup"
 
 # Paths to various browsers...
@@ -102,8 +103,15 @@ else
     echo "Mozilla not installed"
 fi
  
-# Install Trelica Browser Helper
-cd "/Users/$CurrentUser"
-curl -O "$TrelicaBrowserHelperUrl"
-sudo installer -pkg TrelicaBrowserHelper.pkg -target /Applications
-rm TrelicaBrowserHelper.pkg
+# Install Trelica Browser Helper if not already present
+if [ -d "$ExecutablePath" ]; then
+    echo "Downloading and installing Browser Helper..."
+    cd "/Users/$CurrentUser"
+    curl -O "$TrelicaBrowserHelperUrl"
+    echo "- Downloaded"
+    sudo installer -pkg TrelicaBrowserHelper.pkg -target /Applications
+    rm TrelicaBrowserHelper.pkg
+    echo "- Installation complete"
+else
+    echo "Browser Helper already installed at $ExecutablePath"
+fi
