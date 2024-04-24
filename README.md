@@ -10,7 +10,7 @@ Trelica organization ID, the domain you are hosted on (app.trelica.com or eu.tre
 to the package.
 
 If you are deploying to mulitple machines in a production environment you may wish to upload the
-`TrelicaBrowserHelper.pkg` file to your own S3 bucket or equivalent.
+`TrelicaBrowserHelper` file to your own S3 bucket or equivalent.
 
 ```
 # Alter these to point to your Trelica Organization ID and the correct domain (app or eu)
