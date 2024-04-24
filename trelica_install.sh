@@ -3,14 +3,14 @@
 # Alter these to point to your Trelica Organization ID and the correct domain (app or eu)
 OrgID="a12345bc678d9e0f12a345b6c7f89def"
 Domain="app.trelica.com"
-TrelicaBrowserHelperUrl="https://vendeqappfiles.blob.core.windows.net/public/browserxtn/TrelicaBrowserHelper.pkg"
+TrelicaBrowserHelperUrl="https://vendeqappfiles.blob.core.windows.net/public/browserxtn/TrelicaBrowserHelper"
 
 # Paths to install to
 CurrentUser=$(who | awk '/console/{print $1}')
 AppScriptsFolder="/Users/$CurrentUser/Library/Application Scripts"
 GroupContainersFolder="/Users/$CurrentUser/Library/Group Containers"
 plistPath="$GroupContainersFolder/2MXR75AJYH.com.trelica.macgroup/Library/Application Support/Trelica/BrowserHelper.plist"
-ExecutablePath="$GroupContainersFolder/2MXR75AJYH.com.trelica.macgroup/Library/Application Support/Trelica/TrelicaBrowserHelper"
+InstallPath="$GroupContainersFolder/2MXR75AJYH.com.trelica.macgroup/Library/Application Support/Trelica"
 AliasPath="$GroupContainersFolder/2MXR75AJYH.com.trelica.macgroup/Library/Application Scripts/2MXR75AJYH.com.trelica.macgroup"
 
 # Paths to various browsers...
@@ -105,14 +105,16 @@ else
 fi
  
 # Install Trelica Browser Helper if not already present
-if [ ! -e "$ExecutablePath" ]; then
-    echo "Downloading and installing Browser Helper..."
-    cd "/Users/$CurrentUser"
+if [ ! -e "$InstallPath/TrelicaBrowserHelper" ]; then
+    echo "Downloading the Browser Helper..."
+    cd "$InstallPath"
     curl -O "$TrelicaBrowserHelperUrl"
     echo "- Downloaded"
-    sudo installer -pkg TrelicaBrowserHelper.pkg -target /Applications
-    rm TrelicaBrowserHelper.pkg
-    echo "- Installation complete"
+    sudo chown -R "$CurrentUser" ./TrelicaBrowserHelper
+    chmod +x ./TrelicaBrowserHelper   
+    echo "- Ownership and Execute permissions applied"
 else
-    echo "x Browser Helper already installed at $ExecutablePath"
+    echo "x Browser Helper already installed at $InstallPath/TrelicaBrowserHelper"
 fi
+
+echo "Browser Helper install complete"
