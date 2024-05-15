@@ -1,10 +1,10 @@
 <#
     .SYNOPSIS
-    This script updates the registry to force install the Trelica Browser Extension in Chrome.
+    This script updates the registry to force install the Trelica Browser Extension in Chrome, Edge and Firefox.
 
     .DESCRIPTION
-    The script ensures the registry key for Google Chrome and Edge Extension Install policies exists,
-    retrieves the highest numeric index from its values, and adds a new value incremented by one.
+    The script ensures the registry key for Google Chrome and Edge Extension Install policies exists and updates them.
+    It performs a similar action for Firefox.
 
     .AUTHOR
     Trelica
