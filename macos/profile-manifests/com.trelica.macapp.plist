@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>pfm_domain</key>
+        <string>com.trelica.macapp</string>
+        <key>pfm_title</key>
+        <string>Trelica Browser Helper</string>
+        <key>pfm_description</key>
+        <string>Configure settings for the Trelica Browser Helper application.</string>
+        <key>pfm_format_version</key>
+        <integer>1</integer>
+        <key>pfm_version</key>
+        <integer>1</integer>
+        <key>pfm_last_modified</key>
+        <date>2025-05-13T10:00:00Z</date>
+        <key>pfm_subkeys</key>
+        <array>
+            <dict>
+                <key>pfm_name</key>
+                <string>OrgId</string>
+                <key>pfm_title</key>
+                <string>Organization ID</string>
+                <key>pfm_description</key>
+                <string>The unique identifier for your organization in Trelica.</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>pfm_name</key>
+                <string>Domain</string>
+                <key>pfm_title</key>
+                <string>Trelica Domain</string>
+                <key>pfm_description</key>
+                <string>The domain your organization uses for Trelica (e.g., app.trelica.com).</string>
+                <key>pfm_type</key>
+                <string>string</string>
+                <key>pfm_default</key>
+                <string>app.trelica.com</string>
+            </dict>
+        </array>
+    </dict>
+</plist>

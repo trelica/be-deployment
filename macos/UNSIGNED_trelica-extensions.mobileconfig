@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>ExtensionInstallForcelist</key>
+			<array>
+				<string>igjpcenkahclnlkcldhphacgmfilbefd</string>
+			</array>
+			<key>NativeMessagingAllowlist</key>
+			<array>
+				<string>com.trelica.browser_helper</string>
+			</array>
+			<key>PayloadDisplayName</key>
+			<string>Google Chrome</string>
+			<key>PayloadIdentifier</key>
+			<string>com.google.Chrome.68687EDD-87A8-434B-8F0F-FA1DA55C2B2E</string>
+			<key>PayloadType</key>
+			<string>com.google.Chrome</string>
+			<key>PayloadUUID</key>
+			<string>68687EDD-87A8-434B-8F0F-FA1DA55C2B2E</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>ExtensionInstallForcelist</key>
+			<array>
+				<string>alhagkkmlflbnlckfifmlemhcmaaflon</string>
+			</array>
+			<key>PayloadDisplayName</key>
+			<string>Microsoft Edge</string>
+			<key>PayloadIdentifier</key>
+			<string>com.microsoft.Edge.FBA7D419-C739-4634-8E90-CE4046B3ACCE</string>
+			<key>PayloadType</key>
+			<string>com.microsoft.Edge</string>
+			<key>PayloadUUID</key>
+			<string>FBA7D419-C739-4634-8E90-CE4046B3ACCE</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>EnterprisePoliciesEnabled</key>
+			<true/>
+			<key>ExtensionSettings</key>
+			<dict>
+				<key>browserextension@trelica.com</key>
+				<dict>
+					<key>install_url</key>
+					<string>https://addons.mozilla.org/firefox/downloads/file/4113298/trelica-latest.xpi</string>
+					<key>installation_mode</key>
+					<string>force_installed</string>
+				</dict>
+			</dict>
+			<key>ExtensionUpdate</key>
+			<true/>
+			<key>PayloadDisplayName</key>
+			<string>Firefox</string>
+			<key>PayloadIdentifier</key>
+			<string>org.mozilla.firefox.92EC83E7-0BD4-48AD-891A-347018D05D36</string>
+			<key>PayloadType</key>
+			<string>org.mozilla.firefox</string>
+			<key>PayloadUUID</key>
+			<string>A972DFF6-F3DE-4E32-AC85-D5229817B4A8</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Force installs the Trelica Browser Extension for Chrome, Edge and Firefox.</string>
+	<key>PayloadDisplayName</key>
+	<string>Trelica Browser Extension</string>
+	<key>PayloadIdentifier</key>
+	<string>com.trelica.browserextension</string>
+	<key>PayloadOrganization</key>
+	<string>Trelica Ltd</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>02BAF7B2-A8F0-438F-BB56-6DAA69A52359</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+</dict>
+</plist>

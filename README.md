@@ -1,29 +1,49 @@
-# Trelica Browser Extension Helper deployment
+# Trelica Browser Helper deployment
 
-Some macOS MDMs do not support deploying executables particularly well and you may hit problems
-installing as the current user. The `trelica_install.sh` bash script manually creates the correct
-files and folders to deploy the extension. Thanks to Emmanuel P for contributing an initial version
-of this script.
+## Contents
 
-At the start of the script you will see three variables that should be modified to include your
-Trelica organization ID, the domain you are hosted on (app.trelica.com or eu.trelica.com), and a link
-to the package.
+-   [macOS](#macos)
+-   [Windows](#windows)
 
-If you are deploying to mulitple machines in a production environment you may wish to upload the
-`TrelicaBrowserHelper` file to your own S3 bucket or equivalent.
+## macOS
 
-```
-# Alter these to point to your Trelica Organization ID and the correct domain (app or eu)
-OrgID="a12345bc678d9e0f12a345b6c7f89def"
-Domain="app.trelica.com"
-TrelicaBrowserHelperUrl="https://vendeqappfiles.blob.core.windows.net/public/browserxtn/TrelicaBrowserHelper.pkg"
-```
+### Profiles
 
-To run the script by hand, just set execute permisisons and run it.
+There are three profiles available for deployment:
 
-You should then be able to get your MDM tool to deploy and run the script too.
+-   `UNSIGNED_trelica-extensions.mobileconfig` - Force install Trelica browser extension for Chrome, Edge and Firefox
+-   `trelica-extensions.mobileconfig` - signed version of the above
+-   `UNSIGNED_trelica-helper.mobileconfig` - template for apply settings prior to deploying the Browser helper.
 
-```
-chmod +x ./trelica_install.sh
-sudo ./trelica_install.sh
-```
+These are all referenced and described in the [Deploying on macOS](https://help.trelica.com/hc/en-us/articles/9946257398429-Deploying-on-macOS) Trelica help article.
+
+### Editing profiles in iMazing
+
+iMazing is a widely used profile editor and this can be used to edit and save signed profiles.
+
+The `UNSIGNED_trelica-helper.mobileconfig` file won't show in iMazing without a custom manifest.
+
+You can configure this as follows:
+
+1. Download and install iMazing from https://imazing.com/profile-editor/download/macos
+2. Open preferences with `⌘,`
+3. Choose the _Manifests_ tab
+4. Set _Local folder for custom and override preference manifests (optional)_ to `~/{YOUR PATH}/be-deployment/profile-manifests`
+
+### Uninstalling the Browser Helper
+
+There are some scripts for uninstalling the Browser Helper:
+
+-   `trelica-helper-uninstall.sh` (1.3 onwards, system-level install)
+-   `trelica-old-helper-uninstall.sh` (pre 1.3, user-specific install)
+
+## Windows
+
+### Set-ForceInstallBrowserExtensions
+
+A PowerShell script that configures system registry settings to force-install the Trelica Browser Extension for Google Chrome, Microsoft Edge, and Mozilla Firefox on Windows.
+
+-   Ensures admin privileges are enforced before making changes.
+-   Creates or updates registry keys under the current user’s policy paths for Chrome and Edge to add the Trelica extension to their ExtensionInstallForcelist.
+-   For Firefox, it sets the ExtensionSettings JSON object to force-install the extension from a specified URL.
+-   Avoids duplicating existing extension entries and handles malformed JSON data gracefully.

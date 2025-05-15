@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadDisplayName</key>
+		<string>App Settings for Trelica Browser Helper</string>
+		<key>PayloadIdentifier</key>
+		<string>com.trelica.macapp.profile</string>
+		<key>PayloadUUID</key>
+		<string>AB57E9E7-0557-4141-8708-57698FC75BCF</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadScope</key>
+		<string>System</string>
+		<key>PayloadOrganization</key>
+		<string>Trelica Ltd</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>PayloadDisplayName</key>
+				<string>Application Preferences</string>
+				<key>PayloadIdentifier</key>
+				<string>com.trelica.macapp.profile.appsettings</string>
+				<key>PayloadUUID</key>
+				<string>6146BDAB-51A2-4FC3-9B38-986A298B9DAF</string>
+				<key>PayloadType</key>
+				<string>com.apple.ManagedClient.preferences</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+				<key>PayloadEnabled</key>
+				<true />
+				<key>PayloadContent</key>
+				<dict>
+					<key>com.trelica.macapp</key>
+					<dict>
+						<key>Forced</key>
+						<array>
+							<dict>
+								<key>mcx_preference_settings</key>
+								<dict>
+									<key>OrgId</key>
+									<string><!-- YOUR ORG ID HERE --></string>
+									<key>Domain</key>
+									<string>app.trelica.com</string>
+								</dict>
+							</dict>
+						</array>
+					</dict>
+				</dict>
+			</dict>
+		</array>
+	</dict>
+</plist>
