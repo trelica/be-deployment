@@ -48,7 +48,7 @@
 				<key>browserextension@trelica.com</key>
 				<dict>
 					<key>install_url</key>
-					<string>https://addons.mozilla.org/firefox/downloads/file/4113298/trelica-latest.xpi</string>
+					<string>https://addons.mozilla.org/firefox/downloads/file/4511761/trelica-latest.xpi</string>
 					<key>installation_mode</key>
 					<string>force_installed</string>
 				</dict>
