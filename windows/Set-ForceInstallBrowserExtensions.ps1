@@ -84,7 +84,7 @@ function Update-FirefoxRegistryValue {
     $extensionKey = "browserextension@trelica.com"
     $newData = @{
         installation_mode = "force_installed"
-        install_url       = "https://addons.mozilla.org/firefox/downloads/file/4113298/trelica-latest.xpi"
+        install_url       = "https://addons.mozilla.org/firefox/downloads/latest/trelica/latest.xpi"
     }
 
     # Check if the registry key exists
